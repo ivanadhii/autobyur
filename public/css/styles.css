@@ -1,0 +1,423 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #035397;
+    color: white;
+    padding: 8px 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 35px;
+    margin-right: 15px;
+}
+
+.brand-text {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Main Container */
+.dashboard-container {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 15px auto;
+    padding: 0 15px;
+}
+
+.main-content {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+.dashboard-header {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.dashboard-header h1 {
+    color: #035397;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Top Row Layout - 3 equally-sized columns */
+.top-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.gauge-panel, .chart-panel, .control-panel {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Bottom Row Layout */
+.bottom-row {
+    width: 100%;
+}
+
+/* Panels */
+.panel {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    height: 35vh; /* 20% dari tinggi viewport */
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-title {
+    color: #035397;
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    text-align: center; /* Center the title */
+}
+
+.panel-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* History panel is exception to fixed height */
+.history-panel {
+    height: auto;
+    min-height: 350px;
+}
+
+/* Gauge Panel */
+.gauge-panel .panel-content {
+    width: 100%;
+}
+
+#gauge {
+    width: 100%;
+    height: 100%;
+}
+
+/* Control Panel */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.control-panel .control-group p {
+    margin-left: 8px;
+    font-weight: bold;
+    font-size: 0.75rem; /* Ukuran font lebih kecil */
+}
+
+.status-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.status-indicator {
+    padding: 6px; /* Padding lebih kecil */
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    margin-bottom: 5px;
+}
+
+.status-label {
+    font-weight: bold;
+    font-size: 0.75rem; /* Ukuran font lebih kecil */
+}
+
+#solenoidStatusText,
+#rssiValueText {
+    font-weight: bold;
+    font-size: 0.75rem; /* Ukuran font lebih kecil */
+}
+
+/* Switch toggle */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Button */
+.control-btn, .export-btn {
+    background-color: #035397;
+    color: white;
+    border: none;
+    padding: 6px 10px; /* Padding lebih kecil */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem; /* Ukuran font lebih kecil */
+    transition: background-color 0.3s;
+    width: fit-content;
+    align-self: center; /* Center the button */
+}
+
+.control-btn:hover, .export-btn:hover {
+    background-color: #023e7d;
+}
+
+.export-btn {
+    background-color: #4CAF50;
+}
+
+.export-btn:hover {
+    background-color: #45a049;
+}
+
+/* Chart Panel */
+.chart-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* History Panel */
+.history-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-header {
+    margin-bottom: 10px;
+}
+
+.filter-bar {
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.filter-bar form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.filter-bar label {
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.filter-bar input,
+.filter-bar select {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+/* Table container with scroll */
+.table-container {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+.history-table th {
+    background-color: #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.history-table th:hover {
+    background-color: #e0e0e0;
+}
+
+.sort-header::after {
+    content: "▼";
+    position: absolute;
+    right: 5px;
+    opacity: 0.3;
+    font-size: 0.7rem;
+}
+
+.sort-header.sort-asc::after {
+    content: "▲";
+    opacity: 1;
+}
+
+.sort-header.sort-desc::after {
+    content: "▼";
+    opacity: 1;
+}
+
+.history-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.history-table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+.status-active {
+    color: green;
+    font-weight: bold;
+}
+
+.status-inactive {
+    color: red;
+    font-weight: bold;
+}
+
+.no-data {
+    text-align: center;
+    padding: 15px;
+    color: #777;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .top-row {
+        flex-direction: column;
+    }
+    
+    .panel {
+        height: auto;
+        min-height: 200px;
+        margin-bottom: 15px;
+    }
+    
+    .gauge-panel, .chart-panel, .control-panel {
+        width: 100%;
+    }
+    
+    .filter-bar form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-group {
+        margin-bottom: 8px;
+        width: 100%;
+    }
+    
+    .filter-bar button,
+    .export-btn {
+        width: 100%;
+        margin-top: 8px;
+    }
+}
